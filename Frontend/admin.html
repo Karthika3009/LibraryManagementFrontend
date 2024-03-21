@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            text-align: center;
+        }
+        
+        .button-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+	.rounded-number {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            background-color:darkgoldenrod;
+            color: white;
+            border-radius: 50%; 
+            text-align: center;
+            line-height: 25px;
+            margin-left: 5px;
+        }
+	.rounded-number1 {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            background-color: none; 
+            border-radius: 50%;
+            text-align: center;
+            line-height: 25px;
+            margin-left: 5px;
+        }
+	body{
+            height: 100%;
+            width:100%;
+            background-image: url("img3.jpg");
+            background-size:100rem;
+            background-position:top;
+            background-repeat: no-repeat;
+	    margin: 0;
+            padding: 0;
+        }
+
+
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Library Management System</h2>
+        
+        <div class="button-container">
+            <button id="showBooks">Show Book List<span class="rounded-number">5</span></button>
+            <button id="showStudents">Show Student List<span class="rounded-number">5</span></button>
+	    <button id="showpdf">Generate Pdf<span class="rounded-number1">1</span></button>
+		
+		
+        </div>
+        
+        <div id="bookList" style="display: none;">
+            <h3>Book List</h3>
+            <table id="bookTable">
+                <thead>
+                    <tr>
+                        <th>Book ID</th>
+                        <th>Title</th>
+                        <th>Author</th>
+				<th>Keyword</th>
+				<th>Publish Year</th>
+				<th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>The Adventure Chronicles</td>
+                        <td>John</td>
+				<td>Science</td>
+				<td>2022</td>
+				<td>Available</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Science and Beyond</td>
+                        <td>Jane Scientist</td>
+				<td>Fiction</td>
+				<td>2020</td>
+				<td>Unavailable</td>
+                    </tr>
+			  <tr>
+                        <td>3</td>
+                        <td>Mystery Manor</td>
+                        <td>Sara Sleuth</td>
+				<td>Mystery</td>
+				<td>2021</td>
+				<td>Available</td>
+                    </tr>
+			  <tr>
+                        <td>4</td>
+                        <td>Historical Odyssey</td>
+                        <td>David Historian</td>
+				<td>History</td>
+				<td>2020</td>
+				<td>Available</td>
+                    </tr>
+			  <tr>
+                        <td>5</td>
+                        <td>Fantasy Realm</td>
+                        <td>Emily Fantasywriter</td>
+				<td>Fantasy</td>
+				<td>2024</td>
+				<td>Available</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div id="studentList" style="display: none;">
+            <h3>Student List</h3>
+            <table id="studentTable">
+                <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Name</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Vikram</td>
+                        <td>Active</td>
+                    </tr>
+                   <tr>
+                        <td>2</td>
+                        <td>Vishnu</td>
+                        <td>Blocked</td>
+                    </tr>
+			<tr>
+                        <td>3</td>
+                        <td>Naveen</td>
+                        <td>Active</td>
+                    </tr>
+			<tr>
+                        <td>4</td>
+                        <td>Vijay</td>
+                        <td>Blocked</td>
+                    </tr>
+			<tr>
+                        <td>5</td>
+                        <td>Abi</td>
+                        <td>Active</td>
+                    </tr>
+			
+                </tbody>
+            </table>
+        </div>
+		<div id="pdf" style="display: none;">
+		<p style="font-size:24px;">Pdf Generated Successfully.....</p>
+		</div>
+    </div>
+
+    <script>
+        document.getElementById('showBooks').addEventListener('click', function() {
+            document.getElementById('bookList').style.display = 'block';
+            document.getElementById('studentList').style.display = 'none';
+		document.getElementById('pdf').style.display='none';
+        });
+
+        document.getElementById('showStudents').addEventListener('click', function() {
+            document.getElementById('bookList').style.display = 'none';
+            document.getElementById('studentList').style.display = 'block';
+		document.getElementById('pdf').style.display='none';
+        });
+ 	document.getElementById('showpdf').addEventListener('click', function() {
+            document.getElementById('bookList').style.display = 'none';
+            document.getElementById('studentList').style.display = 'none';
+		document.getElementById('pdf').style.display='block';
+        });
+    </script>
+</body>
+</html>
+
